@@ -1,0 +1,88 @@
+<HTML>
+  
+  <head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	
+	<!-- FAVICON -->
+	<link rel="shortcut icon" href="favicon.ico">
+	
+	<!-- PAGE TITLE AND DESCRIPTION -->
+	<meta name="description" content="Utelos allows you to find the smart devices of the future, and get rewarded for contributing your ideas to them." />
+  	<title>Utelos: Giving Hardware Purpose</title>
+	
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/slate/bootstrap.min.css"> <!-- main stylesheet -->
+	
+	<!-- Custom Stylesheets-->
+	<style = text/css>
+	.top-buffer { margin-top:20px; }
+	.top-buffer2 { margin-top:50px; }
+	.hardwareboxlarge{font-size: 40px; width: 300px;}
+	.hardwareboxsmall{font-size: 20px;width: 300px;}
+	.hardwareboxxsmall{font-size: 10px;width: 300px;}
+	table, td, th {
+    border: 4px solid black;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+	</style>
+	<!-- JAVASCRIPTS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="/app.js"></script>
+</head>
+
+<body ng-app="search" ng-controller="JSONCtrl">
+
+<!--header!--> 
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Utelos</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Blog</a></li>
+      <li><a href="Forum">Forum</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row top-buffer2">
+<div class="twelve columns text-center"><img src="http://res.cloudinary.com/shout/image/upload/c_scale,h_300/v1407356770/Utelos-Vector_d150ut.png"></div>
+</div>
+<div class="row top-buffer">
+<div class="twelve columns text-center"><input type="text" style="height: 37px; margin-top: 1px;" class="input-large search-query" ng-model="searchText" /><button ONCLICK="window.location.href='#Hardware Directory'" class="btn btn-success btn-large">Find</button></div>
+<br/>
+
+<div class="twelve columns text-center">
+<h2>Find the next great smart device that will make your life easier.</h2>
+<h2>Find the next great product that you can hack to your own needs.</h2>
+<h3>Search either by hardware tag (ex: wearable tech) or startup name (ex: Pebble)</h3>
+<br/>
+<h4>We currently have {{startups.length}} hardware projects on record.</h4>
+
+<table id="Hardware Directory" style="margin-left: auto; margin-right: auto; border-spacing: 10px;" class="table table-striped">
+<tr>
+	<th>Name</th>
+	<th>Tags</th>
+	<th>Buy it</th>
+	<th>Hack it</th>
+</tr>
+	<tr ng-repeat="startup in startups|filter:searchText|orderBy:'name'">
+		<td class="hardwareboxlarge"><a ng-href="http://{{startup.url}}" target="__blank">{{startup.name}}</a></td>
+		<td class="hardwareboxxsmall">{{startup.tags}}</td>
+		<td class="hardwareboxsmall"><a ng-href="{{startup.buyurl}}" target="___blank">Buy it now.</a></td>
+		<td class="hardwareboxsmall"><a ng-href="{{startup.hackurl}}" target="___blank">Hack it now.</a></td>
+	</tr>
+</table>
+</div>
+</div> 
+</body>
+</HTML>

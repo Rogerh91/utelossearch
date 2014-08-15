@@ -1,0 +1,27 @@
+[
+    {
+     "id": 1,
+     "name": "Reelyactive",
+     "url": "www.reelyactive.com",
+     "tags": "Middleware Retail Analytics Smart Space",
+     "hackurl": "https://github.com/reelyactive/",
+     "buyurl": "http://shop.reelyactive.com/"
+    },
+    
+    {
+     "id": 2,
+     "name": "Hexoskin",
+     "url": "www.hexoskin.com",
+     "tags": "Wearable Tech Smart Shirt Health Fitness",
+     "hackurl": "http://www.hexoskin.com/pages/developers",
+     "buyurl": "http://www.hexoskin.com/collections/all"
+    },
+    
+    {"id": 3,
+    "name": "Fabule",
+    "url": "www.fabule.com",
+    "tags": "Home Automation Lamps Smart Furniture",
+    "hackurl": "https://github.com/fabule/Clyde",
+    "buyurl": "https://www.fabule.com/"
+    },
+]; 
